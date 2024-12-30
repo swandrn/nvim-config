@@ -24,6 +24,7 @@ vim.o.background = 'dark'
 vim.opt.autowrite = true
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.wrap = true
 
 
 

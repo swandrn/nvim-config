@@ -29,6 +29,7 @@ return {
                 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
                 vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
                 vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+		vim.keymap.set('n', 'of', vim.diagnostic.open_float, {})
             end
     
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
