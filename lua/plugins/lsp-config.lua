@@ -13,7 +13,7 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pyright", "html", "intelephense", "ts_ls" },
+				ensure_installed = { "lua_ls", "pyright", "html", "intelephense", "ts_ls", "yamlls" },
 				automatic_installation = true
 			})
 		end
@@ -53,6 +53,14 @@ return {
 			require('lspconfig').ts_ls.setup {
 				on_attach = on_attach,
 				capabilities = capabilities,
+			}
+			require('lspconfig').yamlls.setup {
+				on_attach = on_attach,
+				capabilities = capabilities,
+				filetypes = {
+					"yaml",
+					"yml",
+				}
 			}
 		end
 	}
