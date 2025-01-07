@@ -13,7 +13,7 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pyright", "html", "intelephense", "ts_ls", "yamlls" },
+				ensure_installed = { "lua_ls", "pyright", "html", "intelephense", "ts_ls", "yamlls", "sqlls" },
 				automatic_installation = true
 			})
 		end
@@ -29,7 +29,7 @@ return {
 				vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
 				vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
 				vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-				vim.keymap.set('n', 'of', vim.diagnostic.open_float, {})
+				vim.keymap.set('n', '<leader>of', vim.diagnostic.open_float, {})
 			end
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -61,6 +61,11 @@ return {
 					"yaml",
 					"yml",
 				}
+			}
+			require('lspconfig').sqlls.setup {
+				on_attach = on_attach,
+				capabilities = capabilities,
+				root_dir = function() return vim.loop.cwd() end,
 			}
 		end
 	}
