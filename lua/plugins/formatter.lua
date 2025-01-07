@@ -11,6 +11,8 @@ return {
 			typescriptreact = { "deno_fmt" },
 			markdown = { "deno_fmt" },
 			json = { "deno_fmt" },
+			sql = { "sql_formatter" },
+			mysql = { "sql_formatter" },
 		},
 		format_on_save = {
 			enabled = true,
