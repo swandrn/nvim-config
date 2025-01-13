@@ -1,5 +1,9 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
+	dependencies = {
+		"windwp/nvim-ts-autotag",
+		opts = {},
+	},
 	config = function()
 		require('nvim-treesitter.configs').setup {
 			ensure_installed = { "python", "javascript", "typescript", "dockerfile", "yaml", "vim", "lua", "bash", "css", "html", "tsx" },
@@ -11,4 +15,3 @@ return {
 		}
 	end
 }
-

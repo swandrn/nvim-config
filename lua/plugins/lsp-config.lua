@@ -13,7 +13,7 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pyright", "html", "intelephense", "ts_ls", "yamlls", "sqlls" },
+				ensure_installed = { "lua_ls", "pyright", "html", "intelephense", "ts_ls", "yamlls", "sqlls", "cssls" },
 				automatic_installation = true
 			})
 		end
@@ -66,6 +66,10 @@ return {
 				on_attach = on_attach,
 				capabilities = capabilities,
 				root_dir = function() return vim.loop.cwd() end,
+			}
+			require('lspconfig').cssls.setup {
+				on_attach = on_attach,
+				capabilities = capabilities,
 			}
 		end
 	}
