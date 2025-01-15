@@ -13,7 +13,16 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pyright", "html", "intelephense", "ts_ls", "yamlls", "sqlls", "cssls" },
+				ensure_installed = { "lua_ls",
+					"pyright",
+					"html",
+					"intelephense",
+					"ts_ls",
+					"yamlls",
+					"sqlls",
+					"cssls",
+					"tailwindcss"
+				},
 				automatic_installation = true
 			})
 		end
@@ -68,6 +77,10 @@ return {
 				root_dir = function() return vim.loop.cwd() end,
 			}
 			require('lspconfig').cssls.setup {
+				on_attach = on_attach,
+				capabilities = capabilities,
+			}
+			require('lspconfig').tailwindcss.setup {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			}
