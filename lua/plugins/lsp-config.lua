@@ -1,33 +1,5 @@
 return {
 	{
-		'williamboman/mason.nvim',
-		config = function()
-			require("mason").setup()
-		end
-	},
-	{
-		'williamboman/mason-lspconfig.nvim',
-		requires = {
-			'williamboman/mason.nvim',
-			'neovim/nvim-lspconfig'
-		},
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls",
-					"pyright",
-					"html",
-					"intelephense",
-					"ts_ls",
-					"yamlls",
-					"sqlls",
-					"cssls",
-					"tailwindcss"
-				},
-				automatic_installation = true
-			})
-		end
-	},
-	{
 		'neovim/nvim-lspconfig',
 		config = function()
 			local on_attach = function(_, _)
