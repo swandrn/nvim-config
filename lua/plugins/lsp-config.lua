@@ -52,7 +52,11 @@ return {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			}
-			require('lspconfig').tailwindcss.setup {
+			require('lspconfig').cssmodules_ls.setup {
+				on_attach = on_attach,
+				capabilities = capabilities,
+			}
+			require('lspconfig').twiggy_language_server.setup {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			}
