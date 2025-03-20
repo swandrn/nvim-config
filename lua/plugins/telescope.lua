@@ -8,8 +8,9 @@ return {
 		vim.keymap.set('n', '<leader>fif', function()
 			builtin.find_files({
 				find_command = { 'rg', '--files', '--no-ignore' },
+				hidden = true,
 				no_ignore = true,
-				desc = 'Telescope find files'
+				desc = 'Telescope find hidden files'
 			})
 		end)
 		vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })

@@ -18,6 +18,7 @@ return {
 			enabled = true,
 			timeout_ms = 1000,
 			lsp_fallback = true,
+			ignore_filetypes = { "go" },
 		},
 	}
 }
