@@ -31,6 +31,13 @@ return {
 		end
 	},
 	{
-		"nvim-treesitter/nvim-treesitter-context"
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require('treesitter-context').setup {
+				on_attach = function(_)
+					vim.api.nvim_set_hl(0, 'TreeSitterContext', { bg = '#2D2D2D' })
+				end
+			}
+		end
 	}
 }
