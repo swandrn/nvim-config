@@ -26,6 +26,18 @@ return {
 			require('lspconfig').html.setup {
 				on_attach = on_attach,
 				capabilities = capabilities,
+				settings = {
+					pyright = {
+						-- Using Ruff's import organizer
+						disableOrganizeImports = true,
+					},
+					python = {
+						analysis = {
+							-- Ignore all files for analysis to exclusively use Ruff for linting
+							ignore = { '*' },
+						},
+					},
+				},
 			}
 			require('lspconfig').intelephense.setup {
 				on_attach = on_attach,
@@ -89,6 +101,15 @@ return {
 				end,
 				capabilities = capabilities,
 			}
+			require('lspconfig').ruff.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+				init_options = {
+					settings = {
+						-- Ruff language server settings go here
+					}
+				}
+			})
 		end
 	}
 }
