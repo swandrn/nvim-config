@@ -22,10 +22,6 @@ return {
 			require('lspconfig').pyright.setup {
 				on_attach = on_attach,
 				capabilities = capabilities,
-			}
-			require('lspconfig').html.setup {
-				on_attach = on_attach,
-				capabilities = capabilities,
 				settings = {
 					pyright = {
 						-- Using Ruff's import organizer
@@ -33,11 +29,16 @@ return {
 					},
 					python = {
 						analysis = {
-							-- Ignore all files for analysis to exclusively use Ruff for linting
-							ignore = { '*' },
+							typeCheckingMode = "basic", -- or "strict" if you prefer
+							autoSearchPaths = true,
+							useLibraryCodeForTypes = true,
 						},
 					},
 				},
+			}
+			require('lspconfig').html.setup {
+				on_attach = on_attach,
+				capabilities = capabilities,
 			}
 			require('lspconfig').intelephense.setup {
 				on_attach = on_attach,
@@ -101,15 +102,23 @@ return {
 				end,
 				capabilities = capabilities,
 			}
-			require('lspconfig').ruff.setup({
+			require('lspconfig').ruff.setup {
+				cmd = vim.fn.executable('ruff') == 1 and { 'ruff', 'server' } or { 'uv', 'run', 'ruff', 'server' },
 				on_attach = on_attach,
 				capabilities = capabilities,
 				init_options = {
-					settings = {
-						-- Ruff language server settings go here
+					configuration = {
+						format = {
+							["quote-style"] = "double",
+						}
 					}
 				}
-			})
+			}
+			require('lspconfig').clangd.setup {
+				cmd = { 'clangd-19' },
+				on_attach = on_attach,
+				capabilities = capabilities,
+			}
 		end
 	}
 }
